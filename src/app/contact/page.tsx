@@ -26,7 +26,7 @@ export default function ContactPage() {
           Contact Us
         </h2>
         <p className="mt-2 text-lg text-gray-400">
-          Have questions or need assistance with your grocery orders? We're here to help!
+          Have questions or need assistance with your grocery orders? We&apos;re here to help!
         </p>
       </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
             type="submit"
             className="block w-full rounded-md bg-green-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
           >
-            Let's talk
+            Let&apos;s talk
           </button>
         </div>
       </form>
