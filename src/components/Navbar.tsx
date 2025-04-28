@@ -1,29 +1,151 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Menu, X, ShoppingCart, Bell } from "lucide-react"; // Using lucide-react icons
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+
+import { Menu, X, ShoppingCart, Bell } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
-  { name: "Categories", href: "/categories" },
   { name: "Plans & Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
 ];
+
+const categories = [
+  {
+    title: "Fruits & Vegetables",
+    href: "/categories/fruits-vegetables",
+    description: "Fresh fruits and vegetables delivered daily.",
+  },
+  {
+    title: "Dairy Products",
+    href: "/categories/dairy-products",
+    description: "Milk, cheese, butter, and other dairy essentials.",
+  },
+  {
+    title: "Beverages",
+    href: "/categories/beverages",
+    description: "Soft drinks, juices, and healthy drinks.",
+  },
+  {
+    title: "Snacks",
+    href: "/categories/snacks",
+    description: "Tasty snacks to munch anytime.",
+  },
+  {
+    title: "Bakery",
+    href: "/categories/bakery",
+    description: "Fresh breads, cakes, and pastries.",
+  },
+  {
+    title: "Frozen Foods",
+    href: "/categories/frozen-foods",
+    description: "Convenient frozen meals and treats.",
+  },
+  {
+    title: "Meat & Seafood",
+    href: "/categories/meat-seafood",
+    description: "Quality meats and fresh seafood selections.",
+  },
+  {
+    title: "Pantry Staples",
+    href: "/categories/pantry-staples",
+    description: "Grains, canned goods, and everyday essentials.",
+  },
+  {
+    title: "Household Supplies",
+    href: "/categories/household-supplies",
+    description: "Cleaning products, paper goods, and more.",
+  },
+  {
+    title: "Personal Care",
+    href: "/categories/personal-care",
+    description: "Beauty, skincare, and wellness essentials.",
+  },
+  {
+    title: "Baby Products",
+    href: "/categories/baby-products",
+    description: "Everything you need for your little one.",
+  },
+  {
+    title: "Pet Supplies",
+    href: "/categories/pet-supplies",
+    description: "Food, toys, and care products for pets.",
+  },
+  {
+    title: "Organic Foods",
+    href: "/categories/organic-foods",
+    description: "Certified organic fruits, veggies, and pantry goods.",
+  },
+  {
+    title: "Gluten-Free",
+    href: "/categories/gluten-free",
+    description: "Delicious gluten-free snacks, meals, and ingredients.",
+  },
+  {
+    title: "International Cuisine",
+    href: "/categories/international-cuisine",
+    description: "World flavors: Asian, Italian, Mexican, and more.",
+  },
+  {
+    title: "Holiday Specials",
+    href: "/categories/holiday-specials",
+    description: "Seasonal treats and festive essentials for every holiday.",
+  },
+  {
+    title: "Health & Wellness",
+    href: "/categories/health-wellness",
+    description: "Vitamins, supplements, and health foods.",
+  },
+  {
+    title: "Eco-Friendly Products",
+    href: "/categories/eco-friendly",
+    description: "Sustainable and environmentally-friendly goods.",
+  },
+  {
+    title: "Gift Hampers",
+    href: "/categories/gift-hampers",
+    description: "Beautifully curated gift boxes for every occasion.",
+  },
+  {
+    title: "New Arrivals",
+    href: "/categories/new-arrivals",
+    description: "Discover the latest additions to our store.",
+  },
+  {
+    title: "Best Sellers",
+    href: "/categories/best-sellers",
+    description: "Customer favorites and top-rated products.",
+  },
+  {
+    title: "Clearance Sale",
+    href: "/categories/clearance-sale",
+    description: "Limited-time deals and discounts.",
+  },
+];
+
+const navTriggerClass =
+  "bg-neutral-950 text-gray-200 hover:text-green-600 hover:bg-neutral-800 focus:bg-neutral-800 active:bg-neutral-800 data-[state=open]:bg-neutral-800 data-[state=open]:text-green-600";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,18 +161,71 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 items-center">
-          {navigation.map((item) => (
-            <Button
-            key={item.name}
-            asChild
-            variant="ghost"
-            className={`${
-              pathname === item.href ? "text-green-500 font-semibold" : "text-gray-200"
-            } hover:text-green-600 hover:bg-neutral-800`}
-          >
-            <Link href={item.href}>{item.name}</Link>
-          </Button>
-          ))}
+          {navigation.slice(0, 2).map(
+            (
+              item // Home and Shop
+            ) => (
+              <Button
+                key={item.name}
+                asChild
+                variant="ghost"
+                className={`${
+                  pathname === item.href
+                    ? "text-green-500 font-semibold"
+                    : "text-gray-200"
+                } hover:text-green-600 hover:bg-neutral-800`}
+              >
+                <Link href={item.href}>{item.name}</Link>
+              </Button>
+            )
+          )}
+
+          {/* Categories Dropdown RIGHT AFTER Shop */}
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={navTriggerClass}>
+                  Categories
+                </NavigationMenuTrigger>
+
+                <NavigationMenuContent className="bg-neutral-950 p-4 rounded-md grid grid-cols-6 gap-2 w-236">
+                  {categories.map((category) => (
+                    <Link
+                      key={category.title}
+                      href={category.href}
+                      className="block p-3 rounded-md hover:bg-neutral-800 transition-colors"
+                    >
+                      <div className="text-sm font-medium text-gray-100">
+                        {category.title}
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        {category.description}
+                      </div>
+                    </Link>
+                  ))}
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {navigation.slice(2).map(
+            (
+              item // Plans & Pricing and Contact
+            ) => (
+              <Button
+                key={item.name}
+                asChild
+                variant="ghost"
+                className={`${
+                  pathname === item.href
+                    ? "text-green-500 font-semibold"
+                    : "text-gray-200"
+                } hover:text-green-600 hover:bg-neutral-800`}
+              >
+                <Link href={item.href}>{item.name}</Link>
+              </Button>
+            )
+          )}
         </div>
 
         {/* Actions */}
@@ -80,26 +255,20 @@ export default function Navbar() {
             <ShoppingCart className="h-5 w-5 text-inherit" />
           </Button>
 
-          {/* Profile */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Avatar className="cursor-pointer">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>GQ</AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/orders">Orders</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {/* Profile Section */}
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <div className="flex gap-2">
+              <SignInButton mode="modal">
+                <Button variant="outline">Sign In</Button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <Button variant="default">Sign Up</Button>
+              </SignUpButton>
+            </div>
+          </SignedOut>
 
           {/* Mobile Menu Toggle */}
           <Button

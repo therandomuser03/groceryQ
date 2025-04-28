@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
 
 const products = [
   {
@@ -161,29 +161,68 @@ const products = [
     imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZs90ucGRjgpxji5kYPZYjcWtJDLDph3XTog&s',
     imageAlt: 'White and brown eggs.',
   },
+  {
+    id: 21,
+    name: 'Tomatoes',
+    href: '#',
+    price: '₹30/kg',
+    imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg',
+    imageAlt: 'Fresh red tomatoes.',
+},
+{
+    id: 22,
+    name: 'Potatoes',
+    href: '#',
+    price: '₹25/kg',
+    imageSrc: 'https://cdn.zeptonow.com/production/tr:w-640,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/9ff7104c-3324-4eea-97a8-a4deccc87c20.jpeg',
+    imageAlt: 'Heap of fresh potatoes.',
+},
+{
+    id: 23,
+    name: 'Ginger Root',
+    href: '#',
+    price: '₹100/kg',
+    imageSrc: 'https://assets.epicurious.com/photos/58d3fed8e2c8295cfbf4a52f/4:3/w_1776,h_1332,c_limit/ginger_root_pile_23032017.jpg',
+    imageAlt: 'Fresh ginger roots.',
+},
+{
+    id: 24,
+    name: 'Moong Dal',
+    href: '#',
+    price: '₹110/kg',
+    imageSrc: 'https://spicebasket.com/cdn/shop/products/moong-dal-400g-490162.jpg?v=1688466753',
+    imageAlt: 'Split yellow moong dal.',
+},
 ];
 
 export default function Shop() {
   return (
     <div>
-      <Navbar />
       <div className="bg-neutral-950">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
-
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 xl:gap-x-8">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 xl:gap-x-8">
             {products.map((product) => (
               <a key={product.id} href={product.href} className="group">
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
-                  className="h-46 aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+                  className="h-28 aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
                 />
                 <h3 className="mt-4 text-sm text-gray-400">{product.name}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-200">{product.price}</p>
               </a>
             ))}
-          </div>
+            </div>
+            <div className="border-t border-gray-700 my-8"></div>
+            <div className="relative pt-4 flex flex-col items-center justify-center text-center">
+            <p className="text-gray-200">
+              Need more items?
+            </p>
+            <Button className="bg-green-700 hover:bg-green-900 mt-2">
+              <p>Click Here</p>
+            </Button>
+            </div>
         </div>
       </div>
     </div>

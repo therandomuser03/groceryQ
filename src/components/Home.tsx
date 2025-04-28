@@ -149,7 +149,7 @@ export default function Home() {
               </p>
               <a
                 href="/shop"
-                className="inline-block rounded-md border bg-transparent border-neutral-600 px-8 py-3 text-center font-medium text-white hover:bg-neutral-800"
+                className="inline-block rounded-md border bg-transparent border-neutral-600 px-8 py-3 text-center font-medium text-white hover:bg-neutral-800 transition"
               >
                 Shop Now
               </a>
@@ -195,7 +195,7 @@ export default function Home() {
                         ? product.imageSrc
                         : product.imageSrc.src
                     }
-                    className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+                    className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8 transition"
                   />
                 </div>
 
@@ -242,7 +242,7 @@ export default function Home() {
                 </p>
                 <a
                   href="/contact"
-                  className="inline-block rounded-md border bg-transparent border-neutral-600 px-8 py-3 text-center font-medium text-white hover:bg-neutral-800"
+                  className="inline-block rounded-md border bg-transparent border-neutral-600 px-8 py-3 text-center font-medium text-white hover:bg-neutral-800 transition"
                 >
                   Get in touch
                 </a>
@@ -272,7 +272,7 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 items-center text-base/7 font-semibold text-white sm:grid-cols-2 md:flex md:flex-wrap lg:gap-x-10">
               <a
                 href="mailto:contact@groceryq.com"
-                className="inline-flex items-center gap-2 rounded-md border bg-transparent border-neutral-600 px-4 py-2 text-center font-medium text-white hover:bg-neutral-800"
+                className="inline-flex items-center gap-2 rounded-md border bg-transparent border-neutral-600 px-4 py-2 text-center font-medium text-white hover:bg-neutral-800 transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -316,201 +316,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
-
-
-
-
-// corrected code :
-
-// import React from "react";
-// import { Badge } from "@/components/ui/badge";
-// import { DotPattern } from "./magicui/dot-pattern";
-// import { Facebook, Twitter, Linkedin } from "lucide-react";
-
-// import apple from "../../public/assets/dashboard/apple.webp";
-// import banana from "../../public/assets/dashboard/banana.webp";
-// import brinjal from "../../public/assets/dashboard/brinjal.webp";
-// import egg from "../../public/assets/dashboard/egg.webp";
-// import garlic from "../../public/assets/dashboard/garlic.webp";
-// import onion from "../../public/assets/dashboard/onion.webp";
-// import radish from "../../public/assets/dashboard/radish.webp";
-// import turmeric_powder from "../../public/assets/dashboard/turmeric_powder.webp";
-// import hero1 from "../../public/assets/dashboard/hero1.webp";
-// import hero2 from "../../public/assets/dashboard/hero-2.webp";
-// import hero3 from "../../public/assets/dashboard/hero3.png";
-
-// const products = [
-//   { id: 1, name: "Apple", price: "₹25.00", imageSrc: apple, imageAlt: "Fresh apple" },
-//   { id: 2, name: "Brinjal", price: "₹15.00", imageSrc: brinjal, imageAlt: "Fresh brinjal" },
-//   { id: 3, name: "Garlic", price: "₹30.00", imageSrc: garlic, imageAlt: "Fresh garlic" },
-//   { id: 4, name: "Onion", price: "₹12.00", imageSrc: onion, imageAlt: "Fresh onion" },
-//   { id: 5, name: "Radish", price: "₹7.50", imageSrc: radish, imageAlt: "Fresh radish" },
-//   { id: 6, name: "Egg", price: "₹40.00", imageSrc: egg, imageAlt: "Fresh eggs" },
-//   { id: 7, name: "Banana", price: "₹5.00", imageSrc: banana, imageAlt: "Fresh banana" },
-//   { id: 8, name: "Turmeric Powder", price: "₹25.00", imageSrc: turmeric_powder, imageAlt: "Organic turmeric powder" },
-// ];
-
-// const links = [
-//   { name: "Facebook", href: "https://www.facebook.com", icon: Facebook },
-//   { name: "Twitter", href: "https://www.twitter.com", icon: Twitter },
-//   { name: "LinkedIn", href: "https://www.linkedin.com", icon: Linkedin },
-// ];
-
-// export default function Home() {
-//   return (
-//     <div className="relative isolate overflow-hidden bg-neutral-950 px-4 sm:px-6 lg:px-8">
-      
-//       {/* Hero Section */}
-//       <section className="py-16 sm:py-24 lg:py-32">
-//         <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-8 items-center">
-          
-//           {/* Text content */}
-//           <div>
-//             <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-//               New Products, Great Deals
-//             </h1>
-//             <p className="mt-6 text-xl text-gray-300">
-//               Limited Time Price Drop!
-//             </p>
-//             <p className="mt-6 text-gray-400 leading-relaxed">
-//               GroceryQ is a leading online store providing an unparalleled selection of quality products, easy shopping, and excellent customer service.
-//             </p>
-//             <a
-//               href="/shop"
-//               className="mt-8 inline-block rounded-md border border-neutral-600 px-8 py-3 text-white hover:bg-neutral-800 transition"
-//             >
-//               Shop Now
-//             </a>
-//           </div>
-
-//           {/* Hero Image */}
-//           <div className="flex justify-center">
-//             <img
-//               src={hero1.src}
-//               alt="New products"
-//               className="w-full max-w-md rounded-xl shadow-xl ring-1 ring-gray-400/10 object-cover"
-//             />
-//           </div>
-
-//         </div>
-//       </section>
-
-//       {/* Products Grid */}
-//       <section className="py-16 sm:py-24">
-//         <div className="max-w-7xl mx-auto">
-//           <h2 className="sr-only">Products</h2>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-//             {products.map((product) => (
-//               <a key={product.id} href="#" className="group">
-//                 <div className="relative">
-//                   {(product.name === "Garlic" || product.name === "Radish") && (
-//                     <Badge variant="secondary" className="absolute top-2 left-2 z-10 bg-black text-green-400">
-//                       Best Seller
-//                     </Badge>
-//                   )}
-//                   <img
-//                     src={product.imageSrc.src}
-//                     alt={product.imageAlt}
-//                     className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 transition"
-//                   />
-//                 </div>
-//                 <h3 className="mt-4 text-sm text-white">{product.name}</h3>
-//                 <hr className="my-2 border-gray-600" />
-//                 <p className="text-lg font-medium text-white">{product.price}</p>
-//               </a>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* About Section */}
-//       <section className="relative overflow-hidden bg-neutral-950 py-24 sm:py-32">
-//         <DotPattern className="absolute inset-0 opacity-20" />
-//         <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-16 items-center px-4 sm:px-6 lg:px-8">
-          
-//           {/* About Image */}
-//           <div>
-//             <img
-//               src={hero2.src}
-//               alt="About GroceryQ"
-//               className="w-full rounded-xl shadow-xl ring-1 ring-gray-400/10 object-cover"
-//             />
-//           </div>
-
-//           {/* About Text */}
-//           <div>
-//             <h2 className="text-4xl font-semibold text-white sm:text-5xl">
-//               About
-//             </h2>
-//             <p className="mt-6 text-xl text-gray-300">
-//               Smart, Affordable Products
-//             </p>
-//             <p className="mt-6 text-gray-400 leading-relaxed">
-//               Our store was founded by like-minded individuals dedicated to building innovative and easy shopping solutions. Every purchase will be seamless from start to finish.
-//             </p>
-//             <a
-//               href="/contact"
-//               className="mt-8 inline-block rounded-md border border-neutral-600 px-8 py-3 text-white hover:bg-neutral-800 transition"
-//             >
-//               Get in touch
-//             </a>
-//           </div>
-
-//         </div>
-//       </section>
-
-//       {/* Reach Out Section */}
-//       <section className="relative isolate overflow-hidden bg-neutral-950 py-24 sm:py-32">
-//         <img
-//           src={hero3.src}
-//           alt="Contact us"
-//           className="absolute inset-0 -z-10 h-full w-full object-cover object-center opacity-30"
-//         />
-//         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-//           <div className="max-w-2xl mx-auto text-center">
-//             <h2 className="text-5xl font-semibold text-white sm:text-6xl">
-//               Reach out to us
-//             </h2>
-//             <p className="mt-6 text-lg text-gray-300">
-//               For general inquiries or feedback, please get in touch with us.
-//             </p>
-
-//             {/* Buttons and Links */}
-//             <div className="mt-10 flex flex-wrap justify-center gap-6">
-//               <a
-//                 href="mailto:contact@groceryq.com"
-//                 className="flex items-center gap-2 rounded-md border border-neutral-600 px-4 py-2 text-white hover:bg-neutral-800 transition"
-//               >
-//                 Email Us
-//               </a>
-//               {links.map((link) => (
-//                 <a
-//                   key={link.name}
-//                   href={link.href}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                   className="flex items-center gap-2 rounded-md border border-neutral-600 px-4 py-2 text-white hover:bg-neutral-800 transition"
-//                 >
-//                   <link.icon className="w-5 h-5" />
-//                   {link.name}
-//                 </a>
-//               ))}
-//             </div>
-
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Footer */}
-//       <footer className="bg-neutral-950 py-6 text-center">
-//         <p className="text-sm text-gray-400">
-//           <strong>&copy; {new Date().getFullYear()} GroceryQ.</strong> All rights reserved.
-//         </p>
-//       </footer>
-
-//     </div>
-//   );
-// }
