@@ -21,7 +21,6 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
   { name: "Categories", href: "/categories" },
-  { name: "Orders", href: "/orders" },
   { name: "Plans & Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
 ];
@@ -93,6 +92,9 @@ export default function Navbar() {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/orders">Orders</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Logout</DropdownMenuItem>
