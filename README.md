@@ -1,36 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 GroceryQ — Your Groceries, Instantly.
 
-## Getting Started
+**GroceryQ** is a high-speed grocery delivery web application built to fulfill daily essentials within **10–15 minutes**. Powered by hyper-local dark stores and intelligent logistics, it leverages modern web technologies to deliver a seamless and lightning-fast online shopping experience.
 
-First, run the development server:
+---
+
+## ⚡️ Project Overview
+
+GroceryQ is a Quick Commerce (Q-Commerce) platform designed as a full-stack web solution. It aims to redefine how users shop for groceries online by combining real-time order tracking, smart inventory, and hyper-local delivery networks — all accessible through a fast, responsive, and elegant interface.
+
+---
+
+## ✨ Features
+
+- ⚡ **10–15 Minute Delivery** — Built for speed with ultra-fast fulfillment workflows.
+- 🧭 **Dark Store Matching** — Auto-matches users with the nearest fulfillment center.
+- 🚚 **Real-Time Order Tracking** — End-to-end tracking from order placement to doorstep.
+- 🛍️ **Smart Catalog & Inventory** — Dynamic listing of grocery items with real-time availability.
+- 🧾 **Secure Auth & Payments** — User authentication with Supabase and integration with secure payment gateways (Stripe/Razorpay).
+- 🎨 **Modern UI/UX** — Built with Shadcn UI, Magic UI, and Tailwind CSS for a sleek, accessible experience.
+- 🧠 **Admin Dashboard** *(coming soon)* — Manage inventory, orders, and store operations.
+
+---
+
+## 🧱 Tech Stack
+
+### 🔹 Frontend
+- [Next.js](https://nextjs.org/) (App Router)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Magic UI](https://magicui.design/)
+- [Framer Motion](https://www.framer.com/motion/) (for animations)
+
+### 🔹 Backend & Services
+- [MongoDB](https://www.mongodb.com/) (via Mongoose & Prisma)
+- [Supabase](https://supabase.com/) (for Auth & file storage)
+- [NextAuth.js](https://next-auth.js.org/) *(optional auth layer)*
+- [Stripe](https://stripe.com/) / [Razorpay](https://razorpay.com/) (payment integration)
+- [Cloudinary](https://cloudinary.com/) / [UploadThing](https://uploadthing.com/) *(optional image/file handling)*
+
+---
+
+## 🛠️ Installation & Setup
+
+### ✅ Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (LTS)
+- Git
+- MongoDB (local or Atlas)
+- Supabase project setup
+- Stripe/Razorpay account (optional)
+- `.env` file configured
+
+---
+
+### 📦 Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/groceryq.git
+cd groceryq
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+⚙️ Environment Variables
 
-## Learn More
+Create a .env.local file in the root and add the following:
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+DATABASE_URL=mongodb+srv://<user>:<password>@cluster.mongodb.net/groceryq
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+📦 Install Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm install
+```
+or
+```
+yarn install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+▶️ Run the Dev Server
+
+```
+npm run dev
+```
+or
+```
+yarn dev
+```
+
+Visit http://localhost:3000 to view the app locally.
+
+
+---
+
+🧪 Scripts
+
+Command	Description
+
+```
+npm run dev	Start development server
+npm run build	Build for production
+npm run start	Start production server
+npm run lint	Run ESLint
+npm run format	Format with Prettier
+```
+
+
+
+---
+
+🧩 Folder Structure (Simplified)
+
+```
+groceryq/
+├── app/                  # Next.js App Router
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/           # Reusable UI components
+├── lib/                  # Helpers & utilities (db, auth, API wrappers)
+├── hooks/                # Custom React hooks
+├── styles/               # Tailwind and global styles
+├── public/               # Static assets
+├── prisma/               # Prisma schema (if using Prisma with MongoDB)
+├── .env.local            # Environment config
+└── README.md
+```
+
+
+---
+
+🤝 Contributing
+
+We welcome community contributions! Here's how to get started:
+
+1. Fork the repository
+
+
+2. Create a new branch:
+
+git checkout -b feature/your-feature
+
+
+3. Commit your changes:
+
+git commit -m "feat: add some cool feature"
+
+
+4. Push and open a Pull Request:
+
+git push origin feature/your-feature
+
+
+
+> Please follow Conventional Commits and ensure your code passes linting and formatting.
+
+
+
+
+---
+
+📝 License
+
+This project is licensed under the MIT License.
+
+
+---
+
+<!---
+📞 Contact
+
+Maintainer: [Your Name / Organization]
+
+Email: support@groceryq.com
+
+Website: www.groceryq.com (Optional)
+
+
+
+
+---
+-->
+
+> GroceryQ – Built for the speed of modern life.
