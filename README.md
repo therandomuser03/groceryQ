@@ -153,9 +153,14 @@ MIT
 
 ## 📬 Contact
 
+Feel free to connect with me:
+
 GitHub: [@therandomuser03](https://github.com/therandomuser03)
-Email: [support@groceryq.com](mailto:support@groceryq.com)
+
+Twitter: [@TheRandomUser03](https://x.com/TheRandomUser03)
+
 
 ---
 
-> GroceryQ — Built for the speed of modern life.
+> GroceryQ — Built for the speed of modern life <br>
+> Built with ❤️ by Anubhab
