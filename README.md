@@ -1,3 +1,6 @@
+> ⚠️ *Currently under active development. Contributions, feedback, and stars are always appreciated!*
+---
+
 # 🛒 GroceryQ — Your Groceries, Instantly
 
 **The lightning-fast grocery delivery platform designed for modern, urban lifestyles. Get essentials at your door in just 10–15 minutes.**
@@ -7,8 +10,6 @@
 ## 🚀 Overview
 
 **GroceryQ** is a next-gen Q-Commerce (Quick Commerce) application engineered for speed, scale, and simplicity. With hyper-local dark stores, smart inventory, and real-time logistics, GroceryQ delivers a sleek online shopping experience — from tap to doorstep, faster than ever.
-
-> ⚠️ *Currently under active development. Contributions, feedback, and stars are always appreciated!*
 
 ---
 
