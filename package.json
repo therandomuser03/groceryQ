@@ -26,11 +26,11 @@
     "ioredis": "^5.6.1",
     "lucide-react": "^0.534.0",
     "motion": "^12.23.12",
-    "next": "15.4.5",
+    "next": "15.4.6",
     "next-auth": "^5.0.0-beta.29",
     "next-themes": "^0.4.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-hook-form": "^7.61.1",
     "resend": "^4.7.0",
     "sonner": "^2.0.6",
@@ -45,13 +45,17 @@
     "@tailwindcss/postcss": "^4",
     "@tanstack/eslint-plugin-query": "^5.81.2",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.1.9",
+    "@types/react-dom": "19.1.7",
     "eslint": "^9",
-    "eslint-config-next": "15.4.5",
+    "eslint-config-next": "15.4.6",
     "prisma": "^6.13.0",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.6",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.1.9",
+    "@types/react-dom": "19.1.7"
   }
 }
