@@ -4,29 +4,27 @@ import Feature from "@/components/landing/feature";
 import Footer from "@/components/landing/footer";
 import Header from "@/components/landing/header";
 import Hero from "@/components/landing/hero";
-import Image from "next/image";
+import { BlurFade } from "@/components/magicui/blur-fade";
 
 export default function Home() {
   return (
-    <div>
-      <div>
+    <main>
+      <main className="fixed inset-0 overflow-y-auto z-10">
         <Header />
-      </div>
-      <div>
-        <Hero />
-      </div>
-      <div>
-        <Feature />
-      </div>
-      <div>
-        <About />
-      </div>
-      <div>
-        <Cta />
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
+      </main>
+      <BlurFade delay={0.05} inView>
+      <Hero />
+      </BlurFade>
+      <BlurFade delay={0.05 * 2} inView>
+      <Feature />
+      </BlurFade>
+      <BlurFade delay={0.05 * 3} inView>
+      <About />
+      </BlurFade>
+      <BlurFade delay={0.05 * 4} inView>
+      <Cta />
+      </BlurFade>
+      <Footer />
+    </main>
   );
 }

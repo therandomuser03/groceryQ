@@ -1,12 +1,4 @@
 import React from 'react'
-// import apple from "public/images/categories/fruits/apple.webp";
-// import banana from "public/images/categories/fruits/banana.webp";
-// import brinjal from "public/images/categories/vegetables/brinjal.webp";
-// import egg from "public/images/categories/animalproduct/egg.webp";
-// import garlic from "public/images/categories/vegetables/garlic.webp";
-// import onion from "public/images/categories/vegetables/onion.webp";
-// import radish from "public/images/categories/vegetables/radish.webp";
-// import turmeric_powder from "public/images/categories/spices/turmeric_powder.webp";
 import { Badge } from '../ui/badge';
 
 const products = [
@@ -98,7 +90,7 @@ export default function Feature() {
                   {(product.name === "Garlic" || product.name === "Radish") && (
                     <Badge
                       variant="secondary"
-                      className="bg-black text-green-400 absolute top-2 left-2 z-10"
+                      className="bg-primary text-green-400 absolute top-2 left-2 z-10"
                     >
                       Best Seller
                     </Badge>
@@ -112,9 +104,9 @@ export default function Feature() {
                   />
                 </div>
 
-                <h3 className="mt-4 text-sm text-white">{product.name}</h3>
+                <h3 className="mt-4 text-sm text-primary">{product.name}</h3>
                 <hr className="my-2 border-gray-600" />
-                <p className="mt-1 text-lg font-medium text-white">
+                <p className="mt-1 text-lg font-medium text-primary">
                   {product.price}
                 </p>
               </a>
