@@ -19,9 +19,13 @@
 * 🧭 **Intelligent Store Matching** — Automatically connects users to the nearest fulfillment center
 * 🚚 **Real-Time Order Tracking** — Monitor your delivery every step of the way
 * 🛍️ **Dynamic Smart Catalog** — Inventory-aware product listings with live availability
-* 🔐 **Secure Auth & Payments** — Powered by Supabase Auth + Stripe/Razorpay integration
+* 💫 **Wishlist & Reviews** — Save favorites and share your experience
+* 🎟️ **Smart Coupons** — Personalized discounts and offers
+* 🔐 **Secure Auth & Payments** — Auth.js + Stripe integration
+* 📊 **Analytics Dashboard** — Track performance metrics
+* 🔔 **Smart Notifications** — Real-time updates on orders
 * 🎨 **Modern UI/UX** — Built with TailwindCSS, Shadcn/UI, and Magic UI
-* 🧠 **Admin Dashboard** *(coming soon)* — Manage orders, users, and inventory efficiently
+* 🧠 **Advanced Admin Panel** — Manage orders, users, inventory, and analytics
 
 ---
 
@@ -31,29 +35,30 @@
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Frontend       | [Next.js (App Router)](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/)                                                                         |
 | UI             | [TailwindCSS](https://tailwindcss.com/), [Shadcn/UI](https://ui.shadcn.com/), [Magic UI](https://magicui.design/), [Framer Motion](https://www.framer.com/motion/) |
-| Authentication | [Supabase Auth](https://supabase.com/)                                                                                                                             |
-| Payments       | [Stripe](https://stripe.com/), [Razorpay](https://razorpay.com/)                                                                                                   |
-| Database       | [MongoDB](https://www.mongodb.com/) via [Prisma](https://www.prisma.io/) & Mongoose                                                                                |
+| Authentication | [Auth.js](https://authjs.dev/) + Prisma Adapter                                                                                                          |
+| Database       | [PostgreSQL](https://www.postgresql.org/) + [Prisma ORM](https://www.prisma.io/)                                                                                    |
+| Caching       | [Redis](https://redis.io/)                                                                                                                                         |
+| Payments       | [Stripe](https://stripe.com/)                                                                                                                                      |
 | Hosting        | [Vercel](https://vercel.com/) *(recommended)*                                                                                                                      |
 | File Uploads   | [Cloudinary](https://cloudinary.com/), [UploadThing](https://uploadthing.com/) *(optional)*                                                                        |
 
 ---
 
-## 📁 Project Structure (Simplified)
+## 📁 Project Structure
 
 ```bash
-groceryq/
+src/
 ├── app/                  # Next.js App Router
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/           # Reusable UI components
-├── lib/                  # Helpers & utilities (db, auth, API wrappers)
-├── hooks/                # Custom React hooks
-├── styles/               # Tailwind and global styles
-├── public/               # Static assets
-├── prisma/               # Prisma schema (if using Prisma with MongoDB)
-├── .env.local            # Environment config
-└── README.md
+│   ├── api/             # API routes
+│   ├── (dashboard)/     # Admin dashboard
+│   ├── (shop)/         # Main shopping interface
+│   └── globals.css
+├── components/          # Reusable UI components
+├── lib/                 # Core utilities
+├── hooks/              # Custom React hooks
+├── store/              # State management
+├── types/              # TypeScript definitions
+└── utils/              # Helper functions
 ```
 
 ---
@@ -71,11 +76,7 @@ cd groceryq
 
 ```bash
 npm install
-```
-
-or
-
-```bash
+# or
 yarn install
 ```
 
@@ -84,25 +85,24 @@ yarn install
 Create a `.env.local` file in the root:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+DATABASE_URL="postgresql://username:password@localhost:5432/groceryq"
+AUTH_URL="http://localhost:3000"
+AUTH_SECRET="your-secret-key"
 
-DATABASE_URL=mongodb+srv://<user>:<password>@cluster.mongodb.net/groceryq
-JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_PUBLISHABLE_KEY="pk_test_..."
+CLOUDINARY_CLOUD_NAME="your-cloud-name"
+CLOUDINARY_API_KEY="your-api-key"
+CLOUDINARY_API_SECRET="your-api-secret"
 
-STRIPE_SECRET_KEY=your_stripe_key
-STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+REDIS_URL="redis://localhost:6379"
 ```
 
 ### 4. Run the Dev Server
 
 ```bash
 npm run dev
-```
-
-or
-
-```bash
+# or
 yarn dev
 ```
 
@@ -144,9 +144,10 @@ MIT
 
 ## 🙌 Acknowledgements
 
-* Supabase Auth
-* Stripe & Razorpay
-* MongoDB + Prisma
+* Auth.js
+* PostgreSQL + Prisma
+* Redis
+* Stripe
 * Shadcn UI & Magic UI
 * Cloudinary / UploadThing
 
@@ -159,7 +160,6 @@ Feel free to connect with me:
 GitHub: [@therandomuser03](https://github.com/therandomuser03)
 
 Twitter: [@TheRandomUser03](https://x.com/TheRandomUser03)
-
 
 ---
 

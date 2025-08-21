@@ -10,7 +10,9 @@ export default function Header() {
       </div>
       <div className="inline-flex gap-2">
         <div>
-          <Button>Login</Button>
+            <Button asChild>
+            <a href="/signin">Login</a>
+            </Button>
         </div>
         <div>
           <ModeToggle />
